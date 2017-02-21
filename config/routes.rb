@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'application#index'
+  root 'static#index'
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
