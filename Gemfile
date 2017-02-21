@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Figaro for user authorization
+gem 'figaro'
 # Clearance gem for user auth
 gem 'clearance'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
