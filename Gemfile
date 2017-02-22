@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Facebook oauth
+gem 'omniauth-facebook'
+gem 'omniauth'
 # Figaro for user authorization
 gem 'figaro'
 # Clearance gem for user auth
