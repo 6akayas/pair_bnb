@@ -1,6 +1,5 @@
-Static Index
-
-Homepage put all listings here
+Listings index page
+<%= button_to "Add a home",new_listing_path(current_user), method: :get %>
 
 <table>
 		<tr>
@@ -10,7 +9,7 @@ Homepage put all listings here
       <th> Address </th>
 		</tr>
 			<tbody>
-			<% Listing.all.each do |x| %>
+			<% current_user.listings.all.each do |x| %>
 		<tr>
 			<td><%= x.home_title %></td><td><%= x.summary %></td><td><%= x.price %><td><%= x.address %></td></td><td><a href="/listings/<%= x.id %>">Press for more details!</a></td>
 		</tr>

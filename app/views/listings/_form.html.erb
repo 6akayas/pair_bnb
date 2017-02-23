@@ -1,0 +1,89 @@
+<h2><%= current_user.first_name %>    <%= current_user.last_name %></h2>
+<h3>Listings</h3>
+
+<%= @error_msg %>
+
+<%= form_for Listing.new, url:{action:'create'} do |form| %>
+<div class="text-field">
+  <%= form.label :price %><br />
+  <%= form.text_field :price, type: 'price' %>
+</div>
+
+<div class="text-field">
+  <%= form.label :home_title %><br />
+  <%= form.text_field :home_title, type: 'home_title' %>
+</div>
+
+<div class="text-area">
+  <%= form.label :summary %><br />
+  <%= form.text_area :summary, type: 'summary' %>
+</div>
+
+<div class="text-field">
+  <%= form.label :address %><br />
+  <%= form.text_field  :address, type: 'address' %>
+</div>
+
+<div class="text-field">
+  <%= form.label :home_type %><br />
+  <%= form.select :home_type, ['House','Apartment','Condo'] %>
+
+</div>
+
+<div class="text-field">
+  <%= form.label :room_type %><br />
+    <%= form.select :room_type, ['Entire place','Shared room','Private room'] %>
+</div>
+
+<div class="text-field">
+  <%= form.label :bedroom %><br />
+  <%= form.select :bedroom, [1, 2, 3, 4] %>
+</div>
+
+<div class="text-field">
+  <%= form.label :bathroom %><br />
+  <%= form.select :bathroom, [1, 2, 3] %>
+</div>
+
+<div class="text-field">
+  <%= form.label :accomodate %><br />
+  <%= form.select :accomodate, [1, 2, 3, 4, 5, 6, 7, 8] %>
+</div>
+
+<h3> Amenities: </h3>
+<div class="text-field">
+  <%= form.label :TV? %><br />
+  <%= form.select :got_tv, ['Yes', 'No'] %>
+</div>
+
+<div class="text-field">
+  <%= form.label :Kitchen? %><br />
+  <%= form.select :got_kitchen, ['Yes', 'No'] %>
+</div>
+
+<div class="text-field">
+  <%= form.label :Airconditioning? %><br />
+  <%= form.select :got_aircond, ['Yes', 'No'] %>
+</div>
+
+<div class="text-field">
+  <%= form.label :Internet? %><br />
+  <%= form.select :got_internet, ['Yes', 'No'] %>
+</div>
+
+<div class="text-field">
+  <%= form.label :Gym? %><br />
+  <%= form.select :got_gym, ['Yes', 'No'] %>
+</div>
+
+<div class="text-field">
+  <%= form.label :'Swimming pool?' %><br />
+  <%= form.select :got_pool, ['Yes', 'No'] %>
+</div>
+
+<br />
+
+<div class="submit-field">
+    <%= form.submit %>
+</div>
+<% end %>
