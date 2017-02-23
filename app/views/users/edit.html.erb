@@ -1,4 +1,7 @@
 <div class="col-md-9">
+
+  <%= button_to "My Listings",listings_path(current_user), method: :get %>
+
     <h2><%= @user.first_name %>
         <%= @user.last_name %></h2>
 </div>
