@@ -9,4 +9,5 @@ Price per night: <%= @listing.price %> <br />
 Address: <%= @listing.address %> <br />
 </div>
 
-Make a reservation!
+
+<%= button_to "Make a reservation!", { action: "new", :controller=>"reservation", id: current_user.id }, method: :get %>
