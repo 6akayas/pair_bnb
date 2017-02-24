@@ -1,12 +1,22 @@
-<h2> My listing</h2>
+<h2>My listing</h2>
 
-<h3>Home details: </h3> <br />
+<h3>Home details: </h3>
+<br/>
 
+<h3>Photos:</h3>
 <div id="listing-show">
-Title: <%= @listing.home_title %> <br />
-Summary: <%= @listing.summary %> <br />
-Price per night: <%= @listing.price %> <br />
-Address: <%= @listing.address %> <br />
-</div>
+    <% @listing.photos.each do |photo| %>
+    <div class="item">
+        <%= image_tag photo.url(:thumb), class:"img-responsive" %><br />
+
+    </div>
+    <% end %>
+<br />
+
+    Title:               <%= @listing.home_title %><br/>
+    Summary:             <%= @listing.summary %><br/>
+    Price per night:     <%= @listing.price %><br/>
+    Address:              <%= @listing.address %><br/>
+</div><br/>
 
 <%= button_to "Make a reservation!", new_listing_reservation_path(@listing.id),{ method: "get"} %>

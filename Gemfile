@@ -6,6 +6,11 @@ git_source(:github) do |repo_name|
 end
 
 
+
+# carrierwave
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem "rmagick"
+
 # overlap
 gem 'validates_overlap'
 # Facebook oauth
