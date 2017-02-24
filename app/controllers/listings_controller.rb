@@ -8,13 +8,10 @@ class ListingsController < ApplicationController
 
       new_listing = current_user.listings.new(listing_params)
       if new_listing.save
-        @next = listing_path(new_listing)
-        @notice = "Home saved!"
+        redirect_to listing_path(new_listing), success: "Home saved!"
       else
-        @next = listings_path
-        @notice = "Home not saved. Please try again"
+        redirect_to listings_path, danger: "Home not saved. Please try again"
       end
-      redirect_to @next, :notice => @notice
     end
 
     def show

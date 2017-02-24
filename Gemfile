@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+# overlap
+gem 'validates_overlap'
 # Facebook oauth
 gem 'omniauth-facebook'
 gem 'omniauth'

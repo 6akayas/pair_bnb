@@ -9,4 +9,4 @@ Price per night: <%= @listing.price %> <br />
 Address: <%= @listing.address %> <br />
 </div>
 
-Make a reservation!
+<%= button_to "Make a reservation!", new_listing_reservation_path(@listing.id),{ method: "get"} %>
