@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
         if @reservation.save
           redirect_to listing_reservation_path(@reservation.id), success: "Reservation saved!"
         else
-          redirect_to new_listing_reservation_path(@reservation.id), danger: "Reservation not successful!"
+          redirect_to listing_reservation_path(@reservation.id), danger: "Reservation not successful!"
         end
     end
 
