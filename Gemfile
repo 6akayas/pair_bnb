@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
+# letter opener
+gem "letter_opener", :group => :development
 # will_paginate
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 # faker
