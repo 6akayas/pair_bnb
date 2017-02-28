@@ -10,11 +10,16 @@ Homepage put all listings here
       <th> Address </th>
 		</tr>
 			<tbody>
-			<% Listing.all.each do |x| %>
+		<% Listing.all.each do |x| %>
 		<tr>
-			<td><%= x.home_title %></td><td><%= x.summary %></td><td><%= x.price %><td><%= x.address %></td></td><td><a href="/listings/<%= x.id %>">Press for more details!</a></td>
+			<td><%= x.home_title %></td>
+			<td><%= x.summary %></td>
+			<td><%= x.price %></td>
+			<td><%= x.address %></td>
+			<td>				<a href="/listings/<%= x.id %>">Press for more details!</a>			</td>
 		</tr>
-				<% end %>
-				</tbody>
+		<% end %>
+	</tbody>
 			</tr>
 	</table>
+		<%= will_paginate @listings, renderer: BootstrapPagination::Rails %>

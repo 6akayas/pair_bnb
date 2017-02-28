@@ -6,7 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 
-
+# will_paginate
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+# faker
+gem 'faker'
 # braintree
 gem 'braintree'
 # fog
