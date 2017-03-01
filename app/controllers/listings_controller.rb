@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
 
     def index
         @listings = Listing.all
-        
+
     end
 
     def create
@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
     private
 
     def listing_params
-        params[:listing].permit(:price, :home_title, :summary, :address, :home_type, :room_type, :got_tv, :got_kitchen, :got_aircond, :got_internet, :got_gym, :got_pool, :bedroom, :bathroom, :accomodate, :user_id, {photos: []})
+        params[:listing].permit(:price, :home_title, :summary, :address, :home_type, :room_type, :got_tv, :got_kitchen, :got_aircond, :got_internet, :got_gym, :got_pool, :bedroom, :bathroom, :accomodate, :user_id, :states, {photos: []})
     end
 
 end

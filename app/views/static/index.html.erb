@@ -1,25 +1,47 @@
-Static Index
+<center>
+	<h1>Pair BnB</h1>
 
-Homepage put all listings here
 
-<table>
-		<tr>
-			<th> Home </th>
-			<th> Summary  </th>
-			<th> Price </th>
-      <th> Address </th>
-		</tr>
-			<tbody>
-		<% Listing.all.each do |x| %>
-		<tr>
-			<td><%= x.home_title %></td>
-			<td><%= x.summary %></td>
-			<td><%= x.price %></td>
-			<td><%= x.address %></td>
-			<td>				<a href="/listings/<%= x.id %>">Press for more details!</a>			</td>
-		</tr>
-		<% end %>
-	</tbody>
-			</tr>
-	</table>
+<div class="container">
 		<%= will_paginate @listings, renderer: BootstrapPagination::Rails %>
+	<h2>Homes:</h2>
+	<p>Choose a place to crash</p>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>
+					Home
+				</th>
+				<th>
+					Summary
+				</th>
+				<th>
+					Price
+				</th>
+				<th>
+					State
+				</th>
+				<th>
+					Address
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% Listing.all.each do |x| %>
+			<tr>
+				<td><%= x.home_title %></td>
+				<td><%= x.summary %></td>
+				<td><%= x.price %></td>
+				<td><%= x.states %></td>
+				<td><%= x.address %></td>
+				<td>
+					<a href="/listings/<%= x.id %>">Give for more!</a>
+				</td>
+			</tr>
+			<% end %>
+		</tr>
+	</tbody>
+</table>
+
+</div>
+</center>

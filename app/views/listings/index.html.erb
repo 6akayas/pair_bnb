@@ -1,20 +1,41 @@
-My Listings index page
 <%= button_to "Add a home",new_listing_path(current_user), method: :get %>
 
-<table>
-		<tr>
-			<th> Home </th>
-			<th> Summary  </th>
-			<th> Price </th>
-      <th> Address </th>
-		</tr>
-			<tbody>
-			<% current_user.listings.all.each do |x| %>
-		<tr>
-			<td><%= x.home_title %></td><td><%= x.summary %></td><td><%= x.price %><td><%= x.address %></td></td><td><a href="/listings/<%= x.id %>">Press for more details!</a></td>
-		</tr>
-				<% end %>
-				</tbody>
-
+<div class="container">
+	<h2>My homes</h2>
+	<p>My listings!</p>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>
+					Home
+				</th>
+				<th>
+					Summary
+				</th>
+				<th>
+					Price
+				</th>
+				<th>
+					State
+				</th>
+				<th>
+					Address
+				</th>
 			</tr>
+		</thead>
+		<tbody>
+			<% current_user.listings.all.each do |x| %>
+			<tr>
+				<td><%= x.home_title %></td>
+				<td><%= x.summary %></td>
+				<td><%= x.price %></td>
+				<td><%= x.states %></td>
+				<td><%= x.address %></td>
+				<td>
+					<a href="/listings/<%= x.id %>">Press for more details!</a>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
 	</table>
+</div>

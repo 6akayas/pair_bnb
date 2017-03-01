@@ -6,6 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 
+
+# sidekiq
+gem 'sidekiq'
 # letter opener
 gem "letter_opener", :group => :development
 # will_paginate

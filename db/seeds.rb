@@ -35,6 +35,7 @@ ActiveRecord::Base.transaction do
     listing['bathroom'] = rand(1..3)
     listing['accomodate'] = rand(1..8)
     listing['address'] = Faker::LordOfTheRings.location
+    listing['states'] = Faker::StarWars.planet
     listing['price'] = rand(100..1000)
     listing['summary'] = Faker::Hipster.paragraph
     listing['got_tv'] = Faker::Boolean.boolean
