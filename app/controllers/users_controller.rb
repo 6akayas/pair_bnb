@@ -4,21 +4,20 @@ def new
   @user = User.new
 end
 
-def create_from_omniauth
-    auth_hash = request.env["omniauth.auth"]
-    authentication = Authentication.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"]) || Authentication.create_with_omniauth(auth_hash)
-    if authentication.user
-        user = authentication.user
-        authentication.update_token(auth_hash)
-        @next = root_url
-        @msg = "Signed in!"
+def create
+  @user = User.new(user_params)
+  respond_to do |format|
+    if @user.save
+      UsersSignupJob.perform_later
+      format.html { redirect_to @user, notice: 'User was successfully created.' }
+      # format.js   {}
+      format.json { render json: @user, status: :created, location: @user }
     else
-        user = User.create_with_auth_and_hash(authentication, auth_hash)
-        @next = edit_user_path(user)
-        @msg = "User created - confirm or edit details..."
+      format.html { render action: "new" }
+      format.js   {}
+      format.json { render json: @user.errors, status: :unprocessable_entity }
     end
-    sign_in(user)
-    redirect_to @next, :info => @msg
+  end 
 end
 
 
@@ -34,5 +33,4 @@ end
   def user_params
     params[:user].permit(:email, :password, :first_name, :last_name)
   end
-
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224073616) do
+ActiveRecord::Schema.define(version: 20170301072534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170224073616) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.json     "photos"
+    t.string   "states"
     t.index ["user_id"], name: "index_listings_on_user_id", using: :btree
   end
 

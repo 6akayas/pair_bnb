@@ -5,7 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+# pg_search
+gem 'pg_search'
+# sidekiq
+gem 'sidekiq'
+# letter opener
+gem "letter_opener", :group => :development
 # will_paginate
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 # faker

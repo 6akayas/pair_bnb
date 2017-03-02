@@ -3,9 +3,6 @@
     <%= @reservation.start_date %><br/>
     Checking out:
     <%= @reservation.end_date %><br/>
-    Total price:
+    Paid:
     RM<%= @reservation.total_price %><br/>
 </div><br/>
-
-
-<%= link_to "Make Payment", reservation_braintree_new_path(@reservation.id) %>

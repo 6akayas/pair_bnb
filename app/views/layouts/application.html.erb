@@ -13,22 +13,21 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
-    <%= render partial: '/layouts/flash_msgs' %>
-
     <body>
-
         <div id="header">
-
+            <%= render partial: '/layouts/flash_msgs' %>
             <% if signed_in? -%>
             <%= button_to "Home", { action: "index", :controller=>"static", id: current_user.id }, method: :get %>
             <%= button_to "My Profile", { action: "edit", :controller=>"users", id: current_user.id }, method: :get %>
             <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
         <% else -%>
+            <%= button_to t(".sign_in"), sign_in_path, method: :get %>
             <% end -%>
+
         </div>
 
         <%= yield %>
 
     </body>
-    
+
 </html>
