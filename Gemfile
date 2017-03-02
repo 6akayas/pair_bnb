@@ -5,8 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-
+# pg_search
+gem 'pg_search'
 # sidekiq
 gem 'sidekiq'
 # letter opener
