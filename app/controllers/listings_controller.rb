@@ -21,6 +21,12 @@ class ListingsController < ApplicationController
         @listing = Listing.find_by(id: params[:id])
     end
 
+    def edit 
+      # if current_user.allowed?
+        # then redirect_to edit_listing_path, info: "Please verify the property"
+      # end 
+    end 
+
     private
 
     def listing_params
