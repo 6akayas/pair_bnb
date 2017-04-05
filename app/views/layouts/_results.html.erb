@@ -1,4 +1,12 @@
-<div class="row">
+	<% @listings.each do |listing| %>
+    <% if params[:search].present? %>
+        <% render partial: 'layouts/results' %>
+        <% else %>
+            <% nil %>
+        <% end %>
+    <% end %>
+
+    <div class="row">
 	<div class="col-md-4 well">
 		<% @listings.each do |listing| %>
 			<p>
