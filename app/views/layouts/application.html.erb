@@ -11,23 +11,66 @@
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">Pair Bnb</a>
+                </div>
+                <!-- Collection of nav links and other content for toggling -->
+                <div id="navbarCollapse" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Messages</a></li>
+                    </ul>
+                    <form role="search" class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <%= form_tag listings_path, method: :get do %>
+                            <%= text_field_tag :search, nil, placeholder: "Search places ...", class: "form-control" %>
+                            <%= submit_tag "Search!", name: nil, class: 'btn btn-default submit-button' %>
+                            <% @listings.each do |listing| %>
+                                <% if params[:search].present? %>
+                                    <% render partial: 'layouts/results' %>
+                                    <% else %>
+                                        <% nil %>
+                                    <% end %>
+                                <% end %>
+                            <%end %>
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if signed_in? %>
+                        <li><%= link_to 'Sign Out', sign_out_path, method: :delete%></li>
+                        <% else %>
+                        <li><%= link_to 'Sign In', sign_in_path, method: :get %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </head>
 
     <body>
-        <div id="header">
-            <%= render partial: '/layouts/flash_msgs' %>
-            <% if signed_in? -%>
-            <%= button_to "Home", { action: "index", :controller=>"static", id: current_user.id }, method: :get %>
-            <%= button_to "My Profile", { action: "edit", :controller=>"users", id: current_user.id }, method: :get %>
-            <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-        <% else -%>
-            <%= button_to t(".sign_in"), sign_in_path, method: :get %>
-            <% end -%>
-
-        </div>
 
         <%= yield %>
 
     </body>
 
 </html>
+
+<div class="row">
+            <div class="col-xs-12">
+                <footer>
+                    <p>&copy; Sayaka Chua</p>
+                </footer>
+            </div>
+        </div>
+

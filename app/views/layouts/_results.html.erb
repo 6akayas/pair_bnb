@@ -1,0 +1,64 @@
+<div class="row">
+	<div class="col-md-4 well">
+		<% @listings.each do |listing| %>
+			<p>
+			Home:
+			<%= listing.home_title %><br />
+			Summary:
+			<%= listing.summary %><br />
+			Price per night:
+			<%= listing.price %><br />
+			State:
+			<%= listing.states %><br />
+		  	Address:
+			<%= listing.address %> <br />
+			Bedrooms:
+			<%= listing.bedroom %> <br />
+			Bathrooms:
+			<%= listing.bathroom %> <br />
+			Accomodates:
+			<%= listing.accomodate %> <br />
+			</p>
+	</div>
+	<div class="col-md-4 well">
+		<p>
+			Home:
+			<%= listing.home_title %><br />
+			Summary:
+			<%= listing.summary %><br />
+			Price per night:
+			<%= listing.price %><br />
+			State:
+			<%= listing.states %><br />
+		  Address:
+			<%= listing.address %> <br />
+			Bedrooms:
+			<%= listing.bedroom %> <br />
+			Bathrooms:
+			<%= listing.bathroom %> <br />
+			Accomodates:
+			<%= listing.accomodate %> <br />
+		</p>
+	</div>
+	<div class="col-md-4 well">
+		<p>
+			Home:
+			<%= listing.home_title %><br />
+			Summary:
+			<%= listing.summary %><br />
+			Price per night:
+			<%= listing.price %><br />
+			State:
+			<%= listing.states %><br />
+		  Address:
+			<%= listing.address %> <br />
+			Bedrooms:
+			<%= listing.bedroom %> <br />
+			Bathrooms:
+			<%= listing.bathroom %> <br />
+			Accomodates:
+			<%= listing.accomodate %> <br />
+		</p>
+		<% end %>
+	</div>
+</div>	

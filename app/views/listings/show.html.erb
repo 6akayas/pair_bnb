@@ -41,5 +41,6 @@
         </div><br/>
 
         <%= button_to "Make a reservation!", new_listing_reservation_path(@listing.id),{ method: "get"} %>
+        <%= button_to "Verify Listing", edit_listing_path(@listing.id),{ method: "get"} %>
     </center>
 </div>

@@ -1,80 +1,41 @@
-<div class="container"> <center>
-	<h1>Pair BnB</h1>
+ <h2>Homes:</h2>
+<p>Choose a place to crash</p>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>
+				Home
+			</th>
+			<th>
+				Summary
+			</th>
+			<th>
+				Price
+			</th>
+			<th>
+				State
+			</th>
+			<th>
+				Address
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% Listing.all.each do |x| %>
+		<tr>
+			<td><%= x.home_title %></td>
+			<td><%= x.summary %></td>
+			<td><%= x.price %></td>
+			<td><%= x.states %></td>
+			<td><%= x.address %></td>
+			<td>
+				<a href="/listings/<%= x.id %>">Give for more!</a>
+			</td>
+		</tr>
+		<% end %>
+		</tr>
+	</tbody>
+</table>
 
-	<%= form_tag listings_path, method: :get do %>
-	<%= submit_tag "SEARCH!", name: nil, class: 'btn btn-default submit-button' %>
-	<%= text_field_tag :search, nil, placeholder: "Search places ...", class: "form-control" %>
-	<% end %>
-	<br />
+</div>
 
-	<% @listings.each do |listing| %>
-	<% if @listings.blank? %>
-	<h4>
-		Thereare no listings containing the term <%= params[:search] %>.
-	</h4>
-<% else %>
-	<div class="row">
-				<div class="col-md-4 well">
-			<p>
-				Home:
-				<%= listing.home_title %><br />
-				Summary:
-				<%= listing.summary %><br />
-				Price per night:
-				<%= listing.price %><br />
-				State:
-				<%= listing.states %><br />
-			  Address:
-				<%= listing.address %> <br />
-				Bedrooms:
-				<%= listing.bedroom %> <br />
-				Bathrooms:
-				<%= listing.bathroom %> <br />
-				Accomodates:
-				<%= listing.accomodate %> <br />
-			</p>
-			</div>
-			<% end %>
-		<%end %>
-
-			<%= will_paginate @listings, renderer: BootstrapPagination::Rails %> <h2>Homes:</h2>
-			<p>Choose a place to crash</p>
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>
-							Home
-						</th>
-						<th>
-							Summary
-						</th>
-						<th>
-							Price
-						</th>
-						<th>
-							State
-						</th>
-						<th>
-							Address
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% Listing.all.each do |x| %>
-					<tr>
-						<td><%= x.home_title %></td>
-						<td><%= x.summary %></td>
-						<td><%= x.price %></td>
-						<td><%= x.states %></td>
-						<td><%= x.address %></td>
-						<td>
-							<a href="/listings/<%= x.id %>">Give for more!</a>
-						</td>
-					</tr>
-					<% end %>
-				</tr>
-			</tbody>
-		</table>
-
-	</div>
-</center>

@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
         if params[:search].present?
             @listings = Listing.perform_search(params[:search])
         else
-            @listings = Listing.paginate(:page => params[:page], :per_page => 3)
+            @listings = Listing.all
         end
     end
 
@@ -20,6 +20,12 @@ class ListingsController < ApplicationController
     def show
         @listing = Listing.find_by(id: params[:id])
     end
+
+    def edit 
+      # if current_user.allowed?
+        # then redirect_to edit_listing_path, info: "Please verify the property"
+      # end 
+    end 
 
     private
 
