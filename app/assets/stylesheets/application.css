@@ -14,3 +14,11 @@
  *= require_self
  */
 
+ body {
+ 	padding: 10px;
+ }
+
+ .row {
+ 	margin-top: 50px;
+ }
+
