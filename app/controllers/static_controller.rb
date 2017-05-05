@@ -7,4 +7,6 @@ class StaticController < ApplicationController
       @listings = Listing.all
 	end
   end 
+
+  
 end

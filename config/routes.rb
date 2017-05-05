@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
 
     resources :listings do
-      resource :reservation
+        resource :reservation
     end
 
     resources :reservations do
