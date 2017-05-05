@@ -1,8 +1,8 @@
-<div class="container">
+r<div class="container">
 	<div class="row" style="margin-top: 50px;">
 	    <h2><%= @user.first_name %> <%= @user.last_name %></h2><br />
 		<%= button_to "Edit Profile", edit_user_path(current_user), method: :get %>
-		<%= button_to "My Listings",listings_path(current_user), method: :get %>
+		<%= button_to "My Reservation",reservations_path(current_user), method: :get %>
 	</div>
 </div>
 
